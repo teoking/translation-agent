@@ -94,6 +94,11 @@ Do not provide any explanations or text apart from the translation.
 
     translation = get_completion(translation_prompt, system_message=system_message)
 
+    ic("--- 原始翻译 ---")
+    ic("system_message: ", system_message)
+    ic("translation_prompt: ", translation_prompt)
+    ic("translation: ", translation)
+
     return translation
 
 
@@ -169,6 +174,12 @@ Each suggestion should address one specific part of the translation.
 Output only the suggestions and nothing else."""
 
     reflection = get_completion(reflection_prompt, system_message=system_message)
+
+    ic("--- 大模型反思 ---")
+    ic("system_message: ", system_message)
+    ic("reflection_prompt: ", reflection_prompt)
+    ic("reflection: ", reflection)
+
     return reflection
 
 
@@ -224,6 +235,11 @@ Please take into account the expert suggestions when editing the translation. Ed
 Output only the new translation and nothing else."""
 
     translation_2 = get_completion(prompt, system_message)
+
+    ic("--- 改进翻译 ---")
+    ic("system_message: ", system_message)
+    ic("improve_prompt: ", prompt)
+    ic("translation_2: ", translation_2)
 
     return translation_2
 
